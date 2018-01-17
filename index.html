@@ -30,8 +30,14 @@
 	<script type="text/paperscript" canvas="myCanvas">
 
 		var circles = [];
+		var sound = new Howl({
+			src: ['assets/audio/bubbles.mp3']
+		});
+
 
 		function onKeyDown(event) {
+
+			sound.play();
 		
 			<!-- So random coordinates won't exceed screen size -->
 			var maxPoint = new Point( view.size.width, view.size.height );
@@ -85,6 +91,8 @@
 
 	<!-- Paper JS -->
 	<script src="assets/js/paperjs-v0.11.5/dist/paper-full.js" type="text/javascript"></script>
+	<!-- Howler JS -->
+	<script src="assets/js/howler.js-master/dist/howler.min.js" type="text/javascript"></script>
 
 </body>
 
