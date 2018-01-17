@@ -233,6 +233,14 @@
 				circles[ i ].fillColor.hue += 1;
 				<!-- Multiply the scale by 0.9 with each frame of animation -->
 				circles [ i ].scale( .9 );
+
+				<!-- If circles are no longer visible, remove them from the array: -->
+				if ( circles[ i ].area < 1 ) {
+					circles[ i ].remove();
+					circles.splice( i, 1 );
+					i--;
+					console.log( circles );
+				}
 			
 			}
 
