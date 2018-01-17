@@ -29,21 +29,37 @@
 
 	<script type="text/paperscript" canvas="myCanvas">
 
-		function xCord() {
-			
-			for ( var x = 0; x < 1000; x += 100 ) {
-				
-				var myCircle2 = new Path.Circle(new Point( x, y ), 10);
-				myCircle2.fillColor = 'purple';
+		var circles = [];
 
-			}
+		function onKeyDown(event) {
+		
+			<!-- So random coordinates won't exceed screen size -->
+			var maxPoint = new Point( view.size.width, view.size.height );
+			<!-- Generate random point between 0 and 1 -->
+			var randomPoint = Point.random();
+			<!-- Generate a random point point within the screen size -->
+			var point = maxPoint * randomPoint;
+
+			<!-- Store the new circle in a variable -->
+			var newCircle = new Path.Circle( point, 500 );
+			newCircle.fillColor = "purple";
+
+			<!-- Add circle to the end of the array: -->
+			circles.push( newCircle );
 
 		}
-		
 
-		for ( var y = 0; y < 1000; y += 100 ) {
+		function onFrame( event ) {
 			
-			xCord();
+			<!-- Loop through all circles in the array and add "1" to each one's hue -->
+			for ( var i = 0; i < circles.length; i++ ) {
+				
+				<!-- Increase hue by 1 with each frame of animation -->
+				circles[ i ].fillColor.hue += 1;
+				<!-- Multiply the scale by 0.9 with each frame of animation -->
+				circles [ i ].scale( .9 );
+			
+			}
 
 		}
 

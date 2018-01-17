@@ -5,3 +5,4 @@
 - HTML5
 - CSS3
 - Paper.js
+- Howler.js
