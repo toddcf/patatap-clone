@@ -30,7 +30,6 @@
 	<script type="text/paperscript" canvas="myCanvas">
 
 		<!-- Keypress Object (eliminating need for conditional statements for every single key): -->
-
 		var keyData = {
 
 			q: {
@@ -236,10 +235,11 @@
 
 				<!-- If circles are no longer visible, remove them from the array: -->
 				if ( circles[ i ].area < 1 ) {
+
 					circles[ i ].remove();
 					circles.splice( i, 1 );
 					i--;
-					console.log( circles );
+
 				}
 			
 			}
